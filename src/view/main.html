@@ -7,37 +7,54 @@
 </head>
 <body>
 <div id="main_container">
+    <div id="header">
+        <div id="logo_header">
+            <img src="logo.png">
+        </div>
+        <div id="header_game">
+
+        </div>
+    </div>
+
+<div id="game_container">
 
     <div class="menu" id="menu_choose_player">
-        <div class="button choose_player" id="two_players" onclick="numberOfPlayersChosed(2)">2 players</div>
-        <div class="button choose_player" id="three_players" onclick="numberOfPlayersChosed(3)">3 players</div>
-        <div class="button choose_player" id="four_players" onclick="numberOfPlayersChosed(4)">4 players</div>
+        <div class="button" onclick="numberOfPlayersChosed(2)">2 players</div>
+        <div class="button" onclick="numberOfPlayersChosed(3)">3 players</div>
+        <div class="button" onclick="numberOfPlayersChosed(4)">4 players</div>
+    </div>
+
+    <div class="menu" id="menu_choose_rounds">
+        <div class="button" onclick="numberOfRoundsChosed(3)">3 rounds</div>
+        <div class="button" onclick="numberOfRoundsChosed(5)">5 rounds</div>
+        <div class="button" onclick="numberOfRoundsChosed(7)">7 rounds</div>
+        <div class="button" onclick="numberOfRoundsChosed(10)">10 rounds</div>
     </div>
 
     <div class="menu" id="menu_choose_buttons">
-        <div id="choose_buttons_title">Choose button for player </div>
+        <div id="choose_buttons_title">Player</div>
         <div class="chooser_buttons">
-            <div class="button_name">Left button</div>
-            <div class="text tap_to_setup">Tap to setup</div>
+            <div class="button_name">Tap to choose button ←</div>
             <div class="button_char" id="left_char"></div>
         </div>
         <div class="chooser_buttons">
-            <div class="button_name">Right button</div>
-            <div class="text tap_to_setup">Tap to setup</div>
+            <div class="button_name">Tap to choose button →</div>
             <div class="button_char" id="right_char"></div>
         </div>
         <div class="button" id="key_chosed_button">GO NEXT</div>
     </div>
 
     <div class="menu" id="menu_start_game">
-        <div class="button" id="start_button" onclick="getReadyForGame()">START</div>
+        <div class="button" id="start_button" onclick="initNewGame()">START</div>
     </div>
 
-    <canvas id="game_field" width="700" height="700"></canvas>
+    <canvas id="game_field"></canvas>
 
     <div class="menu" id="menu_end_game">
-        <div id="winner_text"></div>
-        <div class="button" id="reload_button" onclick="getReadyForGame()">RELOAD</div>
+        <div id="results"></div>
+        <div class="button" id="next_round_button" onclick="initNewRound()">NEXT ROUND</div>
+        <div class="button" id="again_button" style="display: none" onclick="initNewGame()">AGAIN</div>
+        <div class="button" id="main_menu_button" onclick="changeScreen(0)">MAIN MENU</div>
     </div>
 
 </div>
@@ -45,5 +62,6 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="../model/Snake.js"></script>
 <script type="text/javascript" src="../controller/main.js"></script>
+</div>
 </body>
 </html>
