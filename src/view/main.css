@@ -1,35 +1,84 @@
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+*{
+    margin:0;
 }
 
-#main_container{
+html, body {
+    height: 100%;
+}
+
+#main_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightblue;
+    height: 100%;
+    position: relative;
+}
+
+#header {
+    width: 100%;
+    margin: 16px 16px 8px;
+    height: 150px;
+}
+
+#logo_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+}
+
+img {
+    height: 100%;
+}
+
+#game_container {
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 700px;
-    width: 700px;
     border: #000000 2px solid;
+    margin: 8px 16px 16px;
+    height: 100%;
 }
 
 .menu {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: stretch;
+    align-items: center;
     padding: 16px;
 }
 
 .button_char {
     width: 25px;
     height: 25px;
+    line-height: 25px;
     text-align: center;
+    margin: 8px;
     border: 1px solid black;
 }
 
+.button {
+    padding: 16px 8px;
+    margin: 8px;
+    text-align: center;
+    border: solid 2px #546ee6;
+    color: black;
+}
+
+.button:hover {
+    background: #546ee6;
+    color: white;
+    cursor: pointer;
+}
+
+*.chooser_buttons {
+    padding-left: 8px;
+}
 .chooser_buttons {
     display: flex;
     flex-direction: row;
@@ -47,5 +96,20 @@ body {
 #reload:hover {
     background: #91bcca;
     cursor: pointer;
+}
+
+#results {
+    white-space: pre;
+}
+
+#menu_end_game {
+    opacity: 0.1;
+    position: absolute;
+}
+
+#menu_end_game:hover {
+    opacity: 1;
+    background-color: lightblue;
+    border: 2px solid black;
 }
 

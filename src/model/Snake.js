@@ -5,7 +5,7 @@ class Snake {
         this.color = Snake.getColor(id);
         this.points = [];
         this.THICKNESS = 2;
-        this.BORDER_INIT_WIDTH = 50;
+        this.BORDER_INIT_WIDTH = 10;
         this.maxLength = maxLength;
         this.refresh();
         this.leftKey = leftCharCode;
@@ -22,6 +22,19 @@ class Snake {
                 return "#1826B0";
             default:
                 return "#25D500";
+        }
+    }
+
+    static getNameById(id) {
+        switch (id) {
+            case 0:
+                return "RED";
+            case 1:
+                return "YELLOW";
+            case 2:
+                return "BLUE";
+            default:
+                return "GREEN";
         }
     }
 
@@ -51,15 +64,22 @@ class Snake {
     }
 
     gameOver(ctx) {
+        // for debug
         let data = ctx.getImageData(this.x, this.y, 1, 1).data;
-        return data[0] !== 0 || data[1] !== 0 || data[2] !== 0 || data[3] !== 0 ||
-            this.x < 0 || this.y < 0 || this.x > this.maxLength || this.y > this.maxLength;
+        if (this.x < 0 || this.y < 0 || this.x > this.maxLength || this.y > this.maxLength) {
+            return true;
+        } else if (data[0] !== 0 || data[1] !== 0 || data[2] !== 0 || data[3] !== 0) {
+            return true;
+        }
+        return false;
     }
 
-    refresh() {
+    refresh(width) {
+        this.maxLength = width;
         this.x = Math.round(Math.random() * (this.maxLength - this.BORDER_INIT_WIDTH) + this.BORDER_INIT_WIDTH);
         this.y = Math.round(Math.random() * (this.maxLength - this.BORDER_INIT_WIDTH) + this.BORDER_INIT_WIDTH);
         this.points = [];
+        this.score = 0;
         if (this.x < this.maxLength / 2) {
             this.dx = this.THICKNESS;
         } else {
